@@ -9,5 +9,6 @@ export GOPATH=~/go
 export PATH=$GOPATH/bin:$PATH
 
 alias ls="ls -G"
-alias ll='ls -lh'
+alias ll="ls -lh"
+alias workdir="cd ~/go/src/github.com/lyft"
 
