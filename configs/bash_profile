@@ -1,3 +1,15 @@
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# General
 alias ls="ls -G"
-alias ll='ls -lh'
+alias ll="ls -lh"
+alias rm="rm -rf"
+
+# Neovim
+export EDITOR="nvim"
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
 

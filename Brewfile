@@ -1,3 +1,6 @@
+# Cask
+tap "caskroom/cask"
+
 # Bash
 brew "bash"
 brew "bash-completion"
@@ -30,14 +33,25 @@ brew "tree"
 # Fuck
 brew "thefuck"
 
+# Kermit for RPI
+brew "c-kermit"
+
+# Go
+brew "go"
+brew "hg"
+brew "bzr"
+
+# Python
+brew "python3"
+
 # Java
 cask "java"
 
-# Cask
-tap "caskroom/cask"
+# Software
 cask "iterm2"
 cask "sublime-text"
 cask "google-chrome"
+cask "google-drive"
 cask "flux"
 cask "vlc"
 cask "slack"
