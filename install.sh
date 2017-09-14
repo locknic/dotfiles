@@ -10,6 +10,7 @@ sh $dir/install/brew.sh
 
 # Set bash profile
 cat $dir/configs/bash_profile > ~/.bash_profile
+source ~/.bash_profile
 
 # Add vimrcs to vimrc
 cat $dir/configs/vimrcs/personal.vim > $dir/configs/vimrc
