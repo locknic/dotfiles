@@ -17,3 +17,6 @@ alias vim=nvim
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 
+# RPI
+alias rpi="ssh 192.168.2.2"
+
