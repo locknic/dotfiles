@@ -1,6 +1,7 @@
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/opt/i386dev/bin
 
 # General
 alias ls="ls -G"

@@ -1,3 +1,11 @@
+# GCC
+brew "gcc"
+
+# XV6 stuff
+brew "glib"
+brew "libpng"
+brew "pixman"
+
 # Cask
 tap "caskroom/cask"
 
