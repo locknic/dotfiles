@@ -21,3 +21,8 @@ alias vim=nvim
 # The Fuck
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
+
+# Onebox
+alias onebox_reset="ssh-keygen -R dmortlock-onebox.dev.lyft.net"
+alias onebox_ssh="ssh dmortlock-onebox.dev.lyft.net"
+
