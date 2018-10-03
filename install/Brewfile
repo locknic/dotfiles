@@ -33,6 +33,22 @@ brew "thefuck"
 # Java
 cask "java"
 
+# Python
+brew "python"
+
+# Lyft dependencies
+brew "geos"
+brew "protobuf"
+brew "postgresql"
+brew "libevent"
+brew "pypy"
+brew "openssl"
+brew "spatialindex"
+brew "mongo"
+
+# Pre-commit linter
+brew "pre-commit"
+
 # Cask
 tap "caskroom/cask"
 cask "iterm2"
@@ -41,4 +57,5 @@ cask "google-chrome"
 cask "flux"
 cask "vlc"
 cask "slack"
-
+cask "jetbrains-toolbox"
+cask "spotify"

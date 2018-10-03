@@ -5,9 +5,6 @@ dir=$(pwd -P)
 
 echo "Installing dotfiles..."
 
-# Install brew files
-sh $dir/install/brew.sh
-
 # Set bash profile
 cat $dir/configs/bash_profile > ~/.bash_profile
 source ~/.bash_profile
@@ -28,4 +25,7 @@ ln -sfv $dir/configs/tmux.conf ~/.tmux.conf
 
 # Set tmux conf file
 tmux source-file ~/.tmux.conf
+
+# Install brew files
+sh $dir/install/brew.sh
 
