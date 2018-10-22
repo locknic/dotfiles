@@ -26,3 +26,6 @@ eval $(thefuck --alias FUCK)
 alias onebox_reset="ssh-keygen -R dmortlock-onebox.dev.lyft.net"
 alias onebox_ssh="ssh dmortlock-onebox.dev.lyft.net"
 
+# Bash completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
