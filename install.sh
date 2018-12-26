@@ -5,9 +5,11 @@ dir=$(pwd -P)
 
 echo "Installing dotfiles..."
 
+# Install brew files
+sh $dir/install/brew.sh || true
+
 # Set bash profile
 cat $dir/configs/bash_profile > ~/.bash_profile
-source ~/.bash_profile
 
 # Add vimrcs to vimrc
 cat $dir/configs/vimrcs/personal.vim > $dir/configs/vimrc
@@ -21,11 +23,13 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config/nvim}
 ln -sfv $dir/configs/vimrc $XDG_CONFIG_HOME/init.vim
 
 # Symlink tmux.conf to ~/.tmux.conf
-# ln -sfv $dir/configs/tmux.conf ~/.tmux.conf
+ln -sfv $dir/configs/tmux.conf ~/.tmux.conf
 
 # Set tmux conf file
-# tmux source-file ~/.tmux.conf
+tmux source-file ~/.tmux.conf
 
-# Install brew files
-sh $dir/install/brew.sh
+# Diff so fancy
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+
+echo "Success"
 
