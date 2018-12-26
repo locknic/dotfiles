@@ -1,3 +1,4 @@
+cnoremap mk. !mkdir -p %:h
 
 " vim-bootstrap 89346c6
 
