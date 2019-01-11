@@ -36,6 +36,9 @@ cask "java"
 # Python
 brew "python"
 
+# Mongodb
+brew "mongodb"
+
 # Lyft dependencies
 brew "geos"
 brew "protobuf"
