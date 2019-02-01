@@ -28,8 +28,9 @@ ln -sfv $dir/configs/tmux.conf ~/.tmux.conf
 # Set tmux conf file
 tmux source-file ~/.tmux.conf || true
 
-# Diff so fancy
+# Git
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global url."git@github.com:".insteadOf "https://github.com/"
 
 echo "Success"
 

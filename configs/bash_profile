@@ -11,6 +11,8 @@ alias ll="ls -lh"
 alias la="ls -a"
 alias rm="rm -rf"
 alias src="cd ~/go/src/github.com/lyft"
+alias gccup="glide cc && glide up"
+alias pipin="pip install -r requirements3.txt --extra-index-url https://pypi.lyft.net/pypi/"
 
 # Neovim
 export EDITOR="nvim"
