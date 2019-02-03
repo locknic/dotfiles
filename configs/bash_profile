@@ -1,11 +1,11 @@
 # Lyft bless ssh alias
-source '/Users/dmortlock/go/src/github.com/lyft/blessclient/lyftprofile'
+source /Users/dmortlock/go/src/github.com/lyft/blessclient/lyftprofile
 
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# General
+# General alias
 alias ls="ls -G"
 alias ll="ls -lh"
 alias la="ls -a"
@@ -30,6 +30,9 @@ alias onebox_ssh="ssh dmortlock-onebox.dev.lyft.net"
 
 # Bash completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# Oh my git
+# source ~/.oh-my-git/prompt.sh
 
 # Share history between terminal tabs
 export HISTSIZE=50000  # Max history lines in memory

@@ -8,9 +8,6 @@ echo "Installing dotfiles..."
 # Install brew files
 sh $dir/install/brew.sh || true
 
-# Set bash profile
-cat $dir/configs/bash_profile > ~/.bash_profile
-
 # Add vimrcs to vimrc
 cat $dir/configs/vim/vimrcs/personal.vim > $dir/configs/vim/vimrc
 cat $dir/configs/vim/vimrcs/generate.vim >> $dir/configs/vim/vimrc
@@ -31,6 +28,13 @@ tmux source-file ~/.tmux.conf || true
 # Git
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+# Oh my git
+# sh $dir/install/oh-my-git.sh
+
+# Set bash profile
+cat $dir/configs/bash_profile > ~/.bash_profile
+source ~/.bash_profile
 
 echo "Success"
 

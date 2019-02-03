@@ -1,9 +1,10 @@
-# Bash
+# Bash & command line utilities
 brew "bash"
 brew "bash-completion"
-
-# Coreutils
 brew "coreutils"
+brew "thefuck"
+brew "peco"
+
 
 # Git
 brew "git"
@@ -11,6 +12,7 @@ brew "diff-so-fancy"
 brew "icdiff"
 brew "hub"
 brew "tig"
+brew "lnav"
 
 # Neovim
 tap "neovim/homebrew-neovim"
@@ -26,9 +28,6 @@ brew "battery"
 
 # Tree
 brew "tree"
-
-# Fuck
-brew "thefuck"
 
 # Java
 cask "java"
