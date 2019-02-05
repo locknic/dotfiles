@@ -5,7 +5,6 @@ brew "coreutils"
 brew "thefuck"
 brew "peco"
 
-
 # Git
 brew "git"
 brew "diff-so-fancy"
@@ -34,6 +33,9 @@ cask "java"
 
 # Python
 brew "python"
+
+# Go
+brew "go"
 
 # Mongodb
 brew "mongodb"
