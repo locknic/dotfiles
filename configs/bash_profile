@@ -10,9 +10,19 @@ alias ls="ls -G"
 alias ll="ls -lh"
 alias la="ls -a"
 alias rm="rm -rf"
+
+# Lyft alias
 alias src="cd ~/go/src/github.com/lyft"
 alias gccup="glide cc && glide up"
+alias saltup="salt-call state.highstate"
+alias venvm="python3 -m venv vevn3"
+alias venva="source vevn3/bin/activate"
 alias pipin="pip install -r requirements3.txt --extra-index-url https://pypi.lyft.net/pypi/"
+alias pipcomp="control run piptools.compile" # pipcomp <service_name>
+
+# Lyft alias onebox
+alias obreset="ssh-keygen -R dmortlock-onebox.dev.lyft.net"
+alias obssh="ssh dmortlock-onebox.dev.lyft.net"
 
 # Neovim
 export EDITOR="nvim"
@@ -23,10 +33,6 @@ alias vim=nvim
 # The Fuck
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
-
-# Onebox
-alias onebox_reset="ssh-keygen -R dmortlock-onebox.dev.lyft.net"
-alias onebox_ssh="ssh dmortlock-onebox.dev.lyft.net"
 
 # Bash completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
