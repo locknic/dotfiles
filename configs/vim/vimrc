@@ -10,7 +10,7 @@ set scrolloff=3                 " Keep cursor 3 lines away from screen border
 
 " Draw line at length 80
 highlight ColorColumn ctermbg=gray
-set colorcolumn=80
+set colorcolumn=120
 
 " Highlight trailing whitespace characters
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
@@ -70,6 +70,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-highlightedyank'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -86,4 +88,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
+
+" nerdtree
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+autocmd vimenter * NERDTree | wincmd p
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
