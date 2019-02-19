@@ -5,9 +5,6 @@ dir=$(pwd -P)
 
 echo "Installing dotfiles..."
 
-# Install brew files
-sh $dir/install/brew.sh || true
-
 # Add vimrcs to vimrc
 cat $dir/configs/vim/vimrcs/personal.vim > $dir/configs/vim/vimrc
 
