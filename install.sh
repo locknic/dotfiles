@@ -10,7 +10,6 @@ sh $dir/install/brew.sh || true
 
 # Add vimrcs to vimrc
 cat $dir/configs/vim/vimrcs/personal.vim > $dir/configs/vim/vimrc
-cat $dir/configs/vim/vimrcs/generate.vim >> $dir/configs/vim/vimrc
 
 # Symlink vimrc to ~/.vimrc
 ln -sfv $dir/configs/vim/vimrc ~/.vimrc
@@ -28,9 +27,6 @@ tmux source-file ~/.tmux.conf || true
 # Git
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-# Oh my git
-# sh $dir/install/oh-my-git.sh
 
 # Set bash profile
 cat $dir/configs/bash_profile > ~/.bash_profile

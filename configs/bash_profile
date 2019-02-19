@@ -13,6 +13,7 @@ alias rm="rm -rf"
 
 # Lyft alias
 alias src="cd ~/go/src/github.com/lyft"
+alias dotfiles="cd ~/go/src/github.com/lyft/dotfiles"
 alias gccup="glide cc && glide up"
 alias saltup="salt-call state.highstate"
 alias venvm="python3 -m venv vevn3"
