@@ -33,6 +33,7 @@ cask "java"
 
 # Python
 brew "python"
+brew "python3"
 
 # Go
 brew "go"

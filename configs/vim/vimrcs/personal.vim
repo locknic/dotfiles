@@ -68,6 +68,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" General
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
@@ -75,6 +76,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
+Plug 'w0rp/ale'
+
+" Python
+Plug 'davidhalter/jedi-vim'
+Plug 'klen/python-mode'
+Plug 'ambv/black'
+Plug 'fisadev/vim-isort'
 
 call plug#end()
 
@@ -105,3 +114,30 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Python
+""""""""""""""""""""""""""""""""""""""""
+let g:loaded_python_provider = 1
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+" python-mode
+let g:pymode_folding = 0
+let g:pymode_lint = 0
+let g:pymode_motion = 0
+let g:pymode_options_colorcolumn = 0
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_run_bind = ''
+let g:pymode_python = 'python3'
+
+" autoformat
+augroup PythonAutoFormat
+  autocmd!
+  if filereadable('.black')
+    autocmd BufWritePre *.py execute ':Isort'
+    autocmd BufWritePre *.py execute ':silent Black'
+  endif
+augroup END
+
+" jedi
+let g:jedi#completions_enabled = 0
+let g:jedi#rename_command = ''
