@@ -1,0 +1,8 @@
+pynvim
+python-language-server[all]
+jedi
+mypy
+flake8
+black
+isort
+autopep8

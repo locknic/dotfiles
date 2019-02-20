@@ -1,3 +1,5 @@
+let mapleader = "\<SPACE>"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -14,23 +16,31 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-" General
+" Visual
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-highlightedyank'
+Plug 'Yggdroot/indentLine'
+
+" Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Development Environment
 Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
 
 " Python
-Plug 'davidhalter/jedi-vim'
-Plug 'klen/python-mode'
+Plug 'ncm2/ncm2-jedi'
 Plug 'ambv/black'
-Plug 'fisadev/vim-isort'
 
 call plug#end()
 
@@ -56,7 +66,7 @@ let g:airline_powerline_fonts = 1
 
 " nerdtree
 """"""""""""""""""""""""""""""""""""""""
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -66,33 +76,32 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Editor
+""""""""""""""""""""""""""""""""""""""""
+" ale
+let g:ale_linters = { 'python': ['flake8', 'mypy', 'pyls'] }
+let g:ale_linters_ignore = { 'python': ['pyls'] }
+let g:ale_fixers = { 'python': ['black', 'isort', 'trim_whitespace', 'autopep8'] }
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_python_flake8_options = '--max-line-length 120'
+
+" black
+let g:python_black_options = '--line-length=120 --skip-string-normalization'
+let g:black_linelength = 120
+let g:black_skip_string_normalization = 1
+
+" ncm2
+autocmd BufEnter  *  call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+" language client
+set hidden
+let g:LanguageClient_serverCommands = { 'python': ['pyls'] }
+
 " Python
 """"""""""""""""""""""""""""""""""""""""
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/usr/local/bin/python3'
-
-" python-mode
-let g:pymode_folding = 0
-let g:pymode_lint = 0
-let g:pymode_motion = 0
-let g:pymode_options_colorcolumn = 0
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_run_bind = ''
-let g:pymode_python = 'python3'
-
-" autoformat
-augroup PythonAutoFormat
-  autocmd!
-  if filereadable('.black')
-    autocmd BufWritePre *.py execute ':Isort'
-    autocmd BufWritePre *.py execute ':silent Black'
-  endif
-augroup END
-
-" jedi
-let g:jedi#completions_enabled = 0
-let g:jedi#rename_command = ''
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,10 +110,15 @@ let g:jedi#rename_command = ''
 
 " General
 """"""""""""""""""""""""""""""""""""""""
+set mouse=a                     " Allow mouse clicking
 set ruler                       " Show the column number on status
 set number                      " Show line number on the side
+set cursorline                  " Show the current line
 set showmatch                   " Highlight matching parens/brackets
 set scrolloff=3                 " Keep cursor 3 lines away from screen border
+
+" Clipboad
+set clipboard^=unnamed,unnamedplus
 
 " Tabbing
 set expandtab
@@ -142,8 +156,14 @@ match ExtraWhitespace /\s\+$\|\t/
 " Shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use space as leader
-let mapleader = "\<Space>"
+" FZP find
+nmap <leader>f :GFiles<CR>
+nmap <leader>F :Files<CR>
+
+" LanguageClient
+nnoremap <silent> <leader>d :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>n :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <leader>r :call LanguageClient#textDocument_rename()<CR>
 
 " Create parent folders recursively
 cnoremap mk. !mkdir -p %:h
