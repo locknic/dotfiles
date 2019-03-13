@@ -33,13 +33,13 @@ Plug 'junegunn/fzf.vim'
 
 " Development Environment
 Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " Python
-Plug 'ncm2/ncm2-jedi'
 Plug 'ambv/black'
 
 call plug#end()
@@ -79,12 +79,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Editor
 """"""""""""""""""""""""""""""""""""""""
 " ale
-let g:ale_linters = { 'python': ['flake8', 'mypy', 'pyls'] }
-let g:ale_linters_ignore = { 'python': ['pyls'] }
-let g:ale_fixers = { 'python': ['black', 'isort', 'trim_whitespace', 'autopep8'] }
+let g:ale_linters = { 'python': ['flake8', 'pyls', 'black'] }
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
 let g:ale_python_flake8_options = '--max-line-length 120'
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 " black
 let g:python_black_options = '--line-length=120 --skip-string-normalization'
@@ -96,11 +95,13 @@ autocmd BufEnter  *  call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 " language client
 set hidden
+let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = { 'python': ['pyls'] }
 
-" Python
-""""""""""""""""""""""""""""""""""""""""
-let g:loaded_python_provider = 1
+" let g:pymode = 1
+" let g:pymode_python = 'python3'
+
+let g:python_host_prog = '/usr/local/bin/python3'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 

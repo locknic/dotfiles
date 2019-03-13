@@ -4,6 +4,7 @@ source /Users/dmortlock/go/src/github.com/lyft/blessclient/lyftprofile
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/bin
 
 # General alias
 alias ls="ls -G"
@@ -48,4 +49,7 @@ export HISTCONTROL=ignoredups:erasedups  # Ignore duplicate lines
 shopt -s histappend  # Append history file instead of overwriting
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# aactivator
+eval "$(aactivator init)"
 

@@ -6,3 +6,4 @@ flake8
 black
 isort
 autopep8
+aactivator

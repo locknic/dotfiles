@@ -4,6 +4,7 @@
 #
 #    __main__.py compile --output-file requirements3.txt requirements3.in
 #
+aactivator==1.0.1
 appdirs==1.4.3            # via black
 attrs==18.2.0             # via black
 autopep8==1.4.3
