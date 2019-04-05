@@ -12,15 +12,19 @@ alias ll="ls -lh"
 alias la="ls -a"
 alias rm="rm -rf"
 
+# Git
+alias gitpm="git checkout master && git pull"
+
 # Lyft alias
 alias src="cd ~/go/src/github.com/lyft"
 alias dotfiles="cd ~/go/src/github.com/lyft/dotfiles"
 alias gccup="glide cc && glide up"
 alias saltup="salt-call state.highstate"
-alias venvm="python3 -m venv vevn3"
+alias venvm="python3 -m venv venv3"
 alias venva="source vevn3/bin/activate"
 alias pipin="pip install -r requirements3.txt --extra-index-url https://pypi.lyft.net/pypi/"
 alias pipcomp="control run piptools.compile" # pipcomp <service_name>
+alias punit="pytest --junitxml=build/unit.xml --cov=app --cov-config=.coveragerc --cov-report=xml --cov-report=term-missing:skip-covered --no-cov-on-fail tests/unit"
 
 # Lyft alias onebox
 alias obreset="ssh-keygen -R dmortlock-onebox.dev.lyft.net"
