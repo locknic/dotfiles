@@ -50,6 +50,7 @@ brew "pypy"
 brew "openssl"
 brew "spatialindex"
 brew "mongo"
+brew "awscli"
 
 # Pre-commit linter
 brew "pre-commit"
