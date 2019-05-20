@@ -51,6 +51,7 @@ brew "openssl"
 brew "spatialindex"
 brew "mongo"
 brew "awscli"
+brew "aws-okta"
 
 # Pre-commit linter
 brew "pre-commit"

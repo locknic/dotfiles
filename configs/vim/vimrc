@@ -169,4 +169,7 @@ nnoremap <silent> <leader>r :call LanguageClient#textDocument_rename()<CR>
 " Create parent folders recursively
 cnoremap mk. !mkdir -p %:h
 
-
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
