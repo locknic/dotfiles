@@ -36,6 +36,9 @@ alias v=nvim
 alias vi=nvim
 alias vim=nvim
 
+# Jetbrains
+alias pycharm="/usr/local/bin/charm/pycharm"
+
 # The Fuck
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
